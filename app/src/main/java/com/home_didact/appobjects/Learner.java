@@ -13,6 +13,8 @@ public class Learner {
     //private photo	//TODO: support photos
     private Date firstMeeting;
     private Date lastMeeting;
+    private int ID;
+    private static int currID = 0;
 
 
     public Learner(String name, String address, String phoneNumber) {
@@ -20,6 +22,8 @@ public class Learner {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.lessons = new ArrayList<Lesson>();
+        this.ID = currID;
+        currID++;
     }
 
 
@@ -38,6 +42,10 @@ public class Learner {
 
     public String getPhoneNumber() {
         return this.phoneNumber;
+    }
+
+    public int getID() {
+        return this.ID;
     }
 
     public List<Lesson> getLessons() {
