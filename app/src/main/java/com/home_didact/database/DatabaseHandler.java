@@ -1,4 +1,4 @@
-package database;
+package com.home_didact.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
