@@ -4,12 +4,10 @@
     <string name="app_name">home-didact</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
-
-    //New learner page
-    <string name="title_activity_new_learner">Enter details for you new student. You may edit these later.</string>
+    //New learner page    <string name="title_activity_new_learner">Enter details for you new student. You may edit these later.</string>
     <string name="new_learner_enter_name">Student name</string>
     <string name="new_learner_enter_address">Student address</string>
     <string name="new_learner_enter_phone_number">Student phone number</string>
+    <string name="title_activity_list_learners">ListLearners</string>
 
 </resources>
