@@ -26,7 +26,7 @@ public class LearnerDBHandler extends SQLiteOpenHelper {
     // columns
     private static final String ID = "id";
     private static final String NAME = "name";
-    private static final String ADDRESS = "address'";
+    private static final String ADDRESS = "address";
     private static final String PHONE_NUMBER = "phone_number";
 
 
@@ -78,16 +78,21 @@ public class LearnerDBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectAll, null);
 
         if (cursor == null) {
+            cursor.close();
             return null;
         }
 
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            Learner learner = new Learner(cursor.getString(0),
-                    cursor.getString(1), cursor.getString(2));
-            learnerList.add(learner);
+        try {
+            while (cursor.moveToNext()) {
+                Learner learner = new Learner(cursor.getString(0),
+                        cursor.getString(1), cursor.getString(2));
+                learnerList.add(learner);
+            }
+        } finally {
+          cursor.close();
         }
-        cursor.close();
+
         db.close();
         return learnerList;
     }
@@ -99,9 +104,11 @@ public class LearnerDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectAll, null);
 
+        int count = cursor.getCount();
+
         cursor.close();
-        db.close();;
-        return cursor.getCount();
+        db.close();
+        return count;
     }
 
     // update a learner

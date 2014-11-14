@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.home_didact.activities.MainActivity" />
         </activity>
+        <activity
+            android:name="com.home_didact.activities.ChangeLearnerActivity"
+            android:label="@string/title_activity_change_learner"
+            android:parentActivityName="com.home_didact.activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.home_didact.activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
