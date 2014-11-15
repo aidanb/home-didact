@@ -1,11 +1,21 @@
 package com.home_didact.activities;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.home_didact.R;
+import com.home_didact.appobjects.Learner;
+import com.home_didact.database.LearnerDBHandler;
+
+import java.util.List;
 
 public class ListLearners extends Activity {
 
@@ -13,6 +23,57 @@ public class ListLearners extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_learners);
+
+        // Load db rows and list all learners
+        LearnerDBHandler db = new LearnerDBHandler(this);
+
+
+        TableLayout learnersTable;
+        learnersTable = (TableLayout) findViewById(R.id.learners_table);
+
+        TableRow trHeader = new TableRow(this);
+        //trHeader.setId(10);
+        trHeader.setBackgroundColor(Color.GRAY);
+        trHeader.setLayoutParams(new TableLayout.LayoutParams(
+                TableLayout.LayoutParams.MATCH_PARENT,
+                TableLayout.LayoutParams.WRAP_CONTENT));
+
+
+        // just display their name for now.
+        TextView labelName = new TextView(this);
+        //labelName.setId(20);
+        labelName.setText("Learner");
+        labelName.setTextColor(Color.WHITE);
+        labelName.setPadding(5, 5, 5, 5);
+        trHeader.addView(labelName);
+
+        learnersTable.addView(trHeader, new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                                                    ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        List<Learner> learners = db.getLearners();
+        int count = 0;
+        for (Learner l : learners) {
+            Log.d("Retrieved: ", l.getName() + ", " + l.getAddress() + ", " + l.getPhoneNumber() + ", " + l.getID());
+
+            TableRow tr = new TableRow(this);
+            if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
+            tr.setId(100+count);
+            tr.setLayoutParams(new TableLayout.LayoutParams(
+                    TableLayout.LayoutParams.MATCH_PARENT,
+                    TableLayout.LayoutParams.WRAP_CONTENT));
+
+            TextView learnerName = new TextView(this);
+            learnerName.setText(l.getName());
+            learnerName.setTextColor(Color.WHITE);
+            learnerName.setPadding(2,0,5,0);
+            tr.addView(learnerName);
+
+            learnersTable.addView(tr, new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
+            count++;
+        }
+
+
     }
 
 

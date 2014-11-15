@@ -6,7 +6,14 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.home_didact.activities.ListLearners">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1"
+        android:id="@+id/learners_table"
+        android:layout_weight="1">
+
+
+        </TableLayout>
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.home_didact.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -58,13 +59,15 @@ public class NewLearnerActivity extends Activity {
         String address = inputAddress.getText().toString();
         String phoneNumber = inputPhoneNumber.getText().toString();
 
-        Learner newLearner = new Learner(name, address, phoneNumber);
-
         // submit info to database
+        Learner newLearner = new Learner(name, address, phoneNumber);
         LearnerDBHandler db = new LearnerDBHandler(this);
         db.addLearner(newLearner);
 
         // now display conformation message and go to learner page
+        // fpr now, go to list of learners
+        Intent intent = new Intent(this, ListLearners.class);
+        startActivity(intent);
     }
 
     /*

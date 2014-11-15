@@ -61,7 +61,7 @@ public class LearnerDBHandler extends SQLiteOpenHelper {
         }
 
         cursor.moveToFirst();
-        Learner learner = new Learner(cursor.getString(0), cursor.getString(1), cursor.getString(2));
+        Learner learner = new Learner(cursor.getString(1), cursor.getString(2), cursor.getString(3));
 
         cursor.close();
         db.close();
@@ -85,8 +85,8 @@ public class LearnerDBHandler extends SQLiteOpenHelper {
         cursor.moveToFirst();
         try {
             while (cursor.moveToNext()) {
-                Learner learner = new Learner(cursor.getString(0),
-                        cursor.getString(1), cursor.getString(2));
+                Learner learner = new Learner(cursor.getString(1),
+                        cursor.getString(2), cursor.getString(3));
                 learnerList.add(learner);
             }
         } finally {

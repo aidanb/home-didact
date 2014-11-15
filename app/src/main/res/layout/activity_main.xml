@@ -37,14 +37,16 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="#eb0282"
-            />
+            android:text="Change learner" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="#000ff2"
-            android:onClick="loadNewLearnerActivity" />
+            android:onClick="loadNewLearnerActivity"
+            android:text="New learner"
+            android:textColor="#FFFFFF" />
 
     </TableRow>
 
