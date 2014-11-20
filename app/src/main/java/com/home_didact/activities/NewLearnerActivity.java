@@ -65,7 +65,7 @@ public class NewLearnerActivity extends Activity {
         db.addLearner(newLearner);
 
         // now display conformation message and go to learner page
-        // fpr now, go to list of learners
+        // for now, go to list of learners
         Intent intent = new Intent(this, ListLearners.class);
         startActivity(intent);
     }

@@ -1,11 +1,13 @@
 package com.home_didact.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -67,6 +69,14 @@ public class ListLearners extends Activity {
             learnerName.setTextColor(Color.WHITE);
             learnerName.setPadding(2,0,5,0);
             tr.addView(learnerName);
+
+            tr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(this, LearnerProfile.class);
+                    startActivity(intent);
+                }
+            });
 
             learnersTable.addView(tr, new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
