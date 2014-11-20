@@ -76,7 +76,7 @@ public class ListLearners extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), LearnerProfile.class);
-                    intent.putExtra("LEARNER", thisLearner.getName());
+                    intent.putExtra("LEARNER", thisLearner.getID());
                     startActivity(intent);
                 }
             });

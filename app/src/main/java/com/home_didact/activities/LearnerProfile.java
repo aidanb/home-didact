@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.home_didact.R;
+import com.home_didact.database.LearnerDBHandler;
 
 public class LearnerProfile extends Activity {
 
@@ -13,6 +14,11 @@ public class LearnerProfile extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learner_profile);
+
+        LearnerDBHandler db = new LearnerDBHandler();
+        Learner l = db.getLearner()
+
+
     }
 
 
