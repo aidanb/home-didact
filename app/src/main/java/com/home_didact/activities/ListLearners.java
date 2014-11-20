@@ -70,10 +70,13 @@ public class ListLearners extends Activity {
             learnerName.setPadding(2,0,5,0);
             tr.addView(learnerName);
 
+            final Learner thisLearner = l;
+
             tr.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), LearnerProfile.class);
+                    intent.putExtra("LEARNER", thisLearner.getName());
                     startActivity(intent);
                 }
             });
