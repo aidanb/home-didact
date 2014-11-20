@@ -73,7 +73,7 @@ public class ListLearners extends Activity {
             tr.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(this, LearnerProfile.class);
+                    Intent intent = new Intent(view.getContext(), LearnerProfile.class);
                     startActivity(intent);
                 }
             });
