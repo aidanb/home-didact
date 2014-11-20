@@ -21,6 +21,15 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    /*
+    Load the change learner activity
+     */
+    public void loadChangeLearnerActivity(View view) {
+        Intent intent = new Intent(this, ListLearnersActivity.class);
+        startActivity(intent);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

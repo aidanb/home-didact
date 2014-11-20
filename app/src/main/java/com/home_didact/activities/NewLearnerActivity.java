@@ -3,7 +3,6 @@ package com.home_didact.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,8 +11,6 @@ import android.widget.EditText;
 import com.home_didact.R;
 import com.home_didact.appobjects.Learner;
 import com.home_didact.database.LearnerDBHandler;
-
-import java.util.List;
 
 public class NewLearnerActivity extends Activity {
 
@@ -66,7 +63,7 @@ public class NewLearnerActivity extends Activity {
 
         // now display conformation message and go to learner page
         // for now, go to list of learners
-        Intent intent = new Intent(this, ListLearners.class);
+        Intent intent = new Intent(this, ListLearnersActivity.class);
         startActivity(intent);
     }
 

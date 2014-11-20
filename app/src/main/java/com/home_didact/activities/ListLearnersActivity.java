@@ -19,7 +19,7 @@ import com.home_didact.database.LearnerDBHandler;
 
 import java.util.List;
 
-public class ListLearners extends Activity {
+public class ListLearnersActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class ListLearners extends Activity {
         //labelName.setId(20);
         labelName.setText("Learner");
         labelName.setTextColor(Color.WHITE);
+        labelName.setTextSize(12);          //TODO: check size here
         labelName.setPadding(5, 5, 5, 5);
         trHeader.addView(labelName);
 
@@ -75,8 +76,8 @@ public class ListLearners extends Activity {
             tr.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(view.getContext(), LearnerProfile.class);
-                    intent.putExtra("LEARNER", thisLearner.getID());
+                    Intent intent = new Intent(view.getContext(), LearnerProfileActivity.class);
+                    intent.putExtra("LEARNER_ID", thisLearner.getID());
                     startActivity(intent);
                 }
             });
