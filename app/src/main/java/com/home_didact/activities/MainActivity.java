@@ -1,8 +1,11 @@
 package com.home_didact.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +15,58 @@ import com.home_didact.R;
 
 public class MainActivity extends Activity {
 
+    /*
+    Determine the last learner active so we can provide a link to their profile
+        and a link to create a new lesson for them.
+    If no last learner (ie no existing learners), display only a link to add a learner?
+     */
+
+    int lastLearnerID = getLastLearnerID();
+
+    private int getLastLearnerID() {
+        /*
+        This value is set in one of two places:
+            1. When the learner is changed using ListLearners.
+            2. When the only existing learner is created.
+         */
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        int defaultID = -1;
+        int lastLearnerID = sharedPref.getInt("last_learner_ID", defaultID);
+        return lastLearnerID;
+    }
+
+    /**
+     *
+     * Main nav button links
+     *
+     */
+
+    /*
+    Load the current learner profile
+     */
+
+    public void loadLearnerProfileActivity(View view) {
+        Intent intent = new Intent(this, LearnerProfileActivity.class); // todo: send the current learner
+        startActivity(intent);
+    }
+
+    /*
+    Load the new lesson activity
+     */
+    public void loadNewLessonActivity(View view) {
+        Intent intent = new Intent(this, NewLessonActivity.class);
+        startActivity(intent);
+    }
+
+    /*
+    Load the change learner activity
+    */
+    public void loadChangeLearnerActivity(View view) {
+        Intent intent = new Intent(this, ListLearnersActivity.class);
+        startActivity(intent);
+    }
 
     /*
     Load the new learner activity
@@ -21,13 +76,6 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    /*
-    Load the change learner activity
-     */
-    public void loadChangeLearnerActivity(View view) {
-        Intent intent = new Intent(this, ListLearnersActivity.class);
-        startActivity(intent);
-    }
 
 
     @Override

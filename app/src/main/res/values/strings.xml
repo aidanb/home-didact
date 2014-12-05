@@ -5,12 +5,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="submit">Submit</string>
-    //New learner page            <string name="title_activity_new_learner">Enter details for you new student. You may edit these later.</string>
+    //New learner page
+    <string name="title_activity_new_learner">Enter details for you new student. You may edit these later.</string>
     <string name="new_learner_enter_name">Student name</string>
     <string name="new_learner_enter_address">Student address</string>
     <string name="new_learner_enter_phone_number">Student phone number</string>
     <string name="title_activity_list_learners">ListLearners</string>
     <string name="title_activity_change_learner">ChangeLearnerActivity</string>
     <string name="title_activity_learner_profile">LearnerProfile</string>
+    <string name="title_activity_new_lesson">NewLessonActivity</string>
+
+    //Shared preference values
+    <string name="last_learner_ID">com.home_didact.LAST_LEARNER_ID</string>
 
 </resources>

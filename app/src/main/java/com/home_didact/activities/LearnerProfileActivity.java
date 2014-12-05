@@ -36,6 +36,10 @@ public class LearnerProfileActivity extends Activity {
         LearnerDBHandler db = new LearnerDBHandler(this);
         Learner l = db.getLearner(learnerID);
 
+        // TODO: Add buttons so individual fields can be edited, or a button to go to an edit page.
+
+        // TODO: this only displays the phone number
+
         TableLayout learnersTable;
         learnersTable = (TableLayout) findViewById(R.id.learners_table);
 

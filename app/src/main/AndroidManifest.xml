@@ -25,7 +25,7 @@
                 android:value="com.home_didact.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.ListLearnersActivity"
+            android:name="com.home_didact.activities.ListLearnersActivity"
             android:label="@string/title_activity_list_learners"
             android:parentActivityName="com.home_didact.activities.MainActivity" >
             <meta-data
@@ -41,12 +41,20 @@
                 android:value="com.home_didact.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.LearnerProfileActivity"
+            android:name="com.home_didact.activities.LearnerProfileActivity"
             android:label="@string/title_activity_learner_profile"
-            android:parentActivityName=".activities.ListLearnersActivity" >
+            android:parentActivityName="com.home_didact.activities.ListLearnersActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.home_didact.activities.ListLearners" />
+        </activity>
+        <activity
+            android:name="com.home_didact.activities.NewLessonActivity"
+            android:label="@string/title_activity_new_lesson"
+            android:parentActivityName="com.home_didact.activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.home_didact.activities.MainActivity" />
         </activity>
     </application>
 
