@@ -2,8 +2,10 @@ package com.home_didact.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -77,7 +79,11 @@ public class ListLearnersActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), LearnerProfileActivity.class);
-                    intent.putExtra("LEARNER_ID", thisLearner.getID());
+                    int learnerID = thisLearner.getID();
+
+                    setLastLearnerID(learnerID);
+
+                    intent.putExtra("LEARNER_ID", learnerID);
                     startActivity(intent);
                 }
             });
@@ -89,6 +95,19 @@ public class ListLearnersActivity extends Activity {
 
 
     }
+
+
+
+    /*
+    Sets the last learner ID in shared preferences
+     */
+    private void setLastLearnerID(int learnerID) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("last_learner_ID", learnerID);
+        editor.apply();
+    }
+
 
 
     @Override

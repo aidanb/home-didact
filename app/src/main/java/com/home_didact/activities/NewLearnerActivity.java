@@ -2,7 +2,9 @@ package com.home_didact.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,11 +63,29 @@ public class NewLearnerActivity extends Activity {
         LearnerDBHandler db = new LearnerDBHandler(this);
         db.addLearner(newLearner);
 
+        // set the last learner ID if this is the first learner in the DB
+        if (db.getLearnerCount() == 1) {
+            setLastLearnerID(newLearner.getID());
+        }
+
         // now display conformation message and go to learner page
         // for now, go to list of learners
         Intent intent = new Intent(this, ListLearnersActivity.class);
         startActivity(intent);
     }
+
+
+    /*
+    Sets the last learner ID in shared preferences
+    */
+    private void setLastLearnerID(int learnerID) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("last_learner_ID", learnerID);
+        editor.apply();
+    }
+
+
 
     /*
     private void testLearnerDB() {
