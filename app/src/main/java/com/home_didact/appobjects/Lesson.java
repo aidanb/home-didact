@@ -6,27 +6,20 @@ import java.util.List;
 public class Lesson {
 
     private Date date;
-    //private something duration;	//TODO: duration type
+    private int duration;	// in minutes
     private List<String> categories;
     private String otherText;
     private String goodNewsStories;
     private String comments;
-    private int sequenceNum;
-    private static int curSeqNum = 0;
     private String location;
 
     public Lesson(Date date, String location) {
         this.date = date;
         this.location = location;
-        this.sequenceNum = curSeqNum;
-        curSeqNum++;
     }
 
 
     // GETTERS
-    public int getSequenceNum() {
-        return this.sequenceNum;
-    }
 
     public Date getDate() {
         return this.date;

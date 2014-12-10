@@ -36,6 +36,8 @@ public class NewLessonActivity extends Activity {
 
         lastLearnerID = getLastLearnerID();
 
+
+
     }
 
 
