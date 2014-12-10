@@ -37,6 +37,8 @@ public class MainActivity extends Activity {
         return lastLearnerID;
     }
 
+
+
     /**
      *
      * Main nav button links
@@ -46,7 +48,6 @@ public class MainActivity extends Activity {
     /*
     Load the current learner profile
      */
-
     public void loadLearnerProfileActivity(View view) {
         Intent intent = new Intent(this, LearnerProfileActivity.class); // todo: send the current learner
         startActivity(intent);
