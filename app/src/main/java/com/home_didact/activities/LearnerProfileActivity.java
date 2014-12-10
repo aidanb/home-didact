@@ -1,8 +1,10 @@
 package com.home_didact.activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,22 +21,36 @@ import java.util.List;
 
 public class LearnerProfileActivity extends Activity {
 
+    int lastLearnerID;
+
+
+    private int getLastLearnerID() {
+        /*
+        This value is set in one of two places:
+            1. When the learner is changed using ListLearners.
+            2. When the only existing learner is created.
+         */
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        int defaultID = -1;
+        int lastLearnerID = sharedPref.getInt("last_learner_ID", defaultID);
+        return lastLearnerID;
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learner_profile);
 
-        Bundle extras = getIntent().getExtras();
-        int learnerID = -1;
-        if (extras != null) {
-            learnerID = extras.getInt("LEARNER_ID");
-        } else {
-            System.out.println("ERROR RECEIVING LEARNERID!");
-        }
+
+        lastLearnerID = getLastLearnerID();
 
 
         LearnerDBHandler db = new LearnerDBHandler(this);
-        Learner l = db.getLearner(learnerID);
+        Learner l = db.getLearner(lastLearnerID);
 
         // TODO: Add buttons so individual fields can be edited, or a button to go to an edit page.
 

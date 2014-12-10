@@ -1,7 +1,9 @@
 package com.home_didact.activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -9,10 +11,31 @@ import com.home_didact.R;
 
 public class NewLessonActivity extends Activity {
 
+
+    int lastLearnerID;
+
+    private int getLastLearnerID() {
+        /*
+        This value is set in one of two places:
+            1. When the learner is changed using ListLearners.
+            2. When the only existing learner is created.
+         */
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        int defaultID = -1;
+        int lastLearnerID = sharedPref.getInt("last_learner_ID", defaultID);
+        return lastLearnerID;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_lesson);
+
+        lastLearnerID = getLastLearnerID();
+
     }
 
 

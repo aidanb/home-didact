@@ -15,14 +15,18 @@ import com.home_didact.R;
 
 public class MainActivity extends Activity {
 
-    /*
+
+
+    int lastLearnerID;
+
+
+
+
+     /*
     Determine the last learner active so we can provide a link to their profile
         and a link to create a new lesson for them.
     If no last learner (ie no existing learners), display only a link to add a learner?
      */
-
-    int lastLearnerID = getLastLearnerID();
-
     private int getLastLearnerID() {
         /*
         This value is set in one of two places:
@@ -49,7 +53,7 @@ public class MainActivity extends Activity {
     Load the current learner profile
      */
     public void loadLearnerProfileActivity(View view) {
-        Intent intent = new Intent(this, LearnerProfileActivity.class); // todo: send the current learner
+        Intent intent = new Intent(this, LearnerProfileActivity.class);
         startActivity(intent);
     }
 
@@ -83,6 +87,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        lastLearnerID = getLastLearnerID();
+
     }
 
 
